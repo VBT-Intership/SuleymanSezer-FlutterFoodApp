@@ -1,10 +1,15 @@
+import 'package:eat_app/model/drink_model.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-import '../bottom_list_view.dart';
-import '../top_list_view.dart';
+import '../component/bottom_list_view.dart';
+import '../component/top_list_view.dart';
 
 class HomeScreen extends StatelessWidget {
+  HomeScreen(this.liste);
+
+  final List<DrinkModel> liste;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -15,7 +20,7 @@ class HomeScreen extends StatelessWidget {
           children: [
             Expanded(flex: 1, child: topNavigation()),
             Expanded(flex: 2, child: TopListView()),
-            Expanded(flex: 4, child: bottomCard()),
+            Expanded(flex: 4, child: bottomCard(liste)),
           ],
         ),
       ),
@@ -23,7 +28,7 @@ class HomeScreen extends StatelessWidget {
   }
 }
 
-Card bottomCard() {
+Card bottomCard(List<DrinkModel> liste) {
   return Card(
     color: Colors.white70,
     child: Padding(
@@ -31,7 +36,7 @@ Card bottomCard() {
       child: Column(
         children: [
           Expanded(flex: 1, child: popularItem()),
-          Expanded(flex: 4, child: BottomListView())
+          Expanded(flex: 4, child: BottomListView(liste))
         ],
       ),
     ),
@@ -78,15 +83,6 @@ Row topNavigation() {
     mainAxisAlignment: MainAxisAlignment.spaceBetween,
     children: [titleText(), searchIcon()],
   );
-}
-
-ListView bottomListView() {
-  return ListView.builder(
-      scrollDirection: Axis.vertical,
-      itemCount: 6,
-      itemBuilder: (context, position) {
-        return bottomCardItem();
-      });
 }
 
 Card popularItemIcon() {
