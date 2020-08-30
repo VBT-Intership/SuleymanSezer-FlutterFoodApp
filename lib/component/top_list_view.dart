@@ -17,29 +17,40 @@ class _TopListViewState extends State<TopListView> {
         scrollDirection: Axis.horizontal,
         itemCount: widget.foodList.length,
         itemBuilder: (context, position) {
-          return itemCard(widget.foodList[position].resimAdresleri);
+          return itemCard(
+              widget.foodList[position].resimAdresleri,
+              widget.foodList[position].tatliIsimleri,
+              widget.foodList[position].tatliSayilari);
         });
   }
 }
 
-Card itemCard(String imageAddress) {
+Card itemCard(String imageAddress, String itemName, String itemNum) {
   return Card(
     clipBehavior: Clip.antiAliasWithSaveLayer,
     elevation: 5,
     margin: EdgeInsets.all(10),
     shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
-    child: Image.network(
-      imageAddress,
-      fit: BoxFit.fill,
+    child: Column(
+      children: [
+        Expanded(
+          flex: 5,
+          child: Image.network(
+            imageAddress,
+            fit: BoxFit.fill,
+          ),
+        ),
+        Expanded(flex: 1, child: itemText(itemName, itemNum))
+      ],
     ),
   );
 }
 
-Row itemText() {
+Row itemText(String itemName, String itemNum) {
   return Row(
     children: [
-      Text("Sweets - ", style: TextStyle(color: Colors.black45)),
-      Text("CupCake", style: TextStyle(color: Colors.black)),
+      Text("$itemName - ", style: TextStyle(color: Colors.black45)),
+      Text("$itemNum", style: TextStyle(color: Colors.black)),
     ],
   );
 }

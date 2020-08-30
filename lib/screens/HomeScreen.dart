@@ -30,6 +30,18 @@ class HomeScreen extends StatelessWidget {
   }
 }
 
+AppBar appBar() {
+  return AppBar(
+    elevation: 0,
+    backgroundColor: Colors.white,
+    leading: IconButton(
+      icon: Icon(Icons.arrow_back, color: Colors.black),
+      onPressed: () {},
+    ),
+    actions: [Icon(Icons.menu, color: Colors.black)],
+  );
+}
+
 Card bottomCard(List<DrinkModel> liste) {
   return Card(
     color: Colors.white70,
@@ -71,12 +83,12 @@ Column popularItemText() {
 }
 
 Text popularItemTextHeader() {
-  return Text('Popular',
+  return Text('En sevilenler',
       style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18));
 }
 
 Text popularItemTextCenter() {
-  return Text("Monggo, entekno duwekmu!",
+  return Text("Sizi baştan çıkartacak lezzetler!",
       style: TextStyle(color: Colors.black45));
 }
 
@@ -125,20 +137,8 @@ Padding titleText() {
   return Padding(
     padding: EdgeInsets.only(left: 10),
     child: Text(
-      'What do you want\nto eat today?',
+      'Bugün ne yemek \nistersin?',
       style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
     ),
-  );
-}
-
-AppBar appBar() {
-  return AppBar(
-    elevation: 0,
-    backgroundColor: Colors.white,
-    leading: IconButton(
-      icon: Icon(Icons.arrow_back, color: Colors.black),
-      onPressed: () {},
-    ),
-    actions: [Icon(Icons.menu, color: Colors.black)],
   );
 }
