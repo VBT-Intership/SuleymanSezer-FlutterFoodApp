@@ -1,4 +1,5 @@
 import 'package:eat_app/model/drink_model.dart';
+import 'package:eat_app/model/food_model.dart';
 import 'package:eat_app/network/connection.dart';
 import 'package:flutter/material.dart';
 
@@ -18,9 +19,10 @@ class _SplashScreenState extends State<SplashScreen> {
 
   void getDrinkList() async {
     Connection connection = Connection();
-    List<DrinkModel> liste = await connection.getDrinkList();
+    List<DrinkModel> drinkList = await connection.getDrinkList();
+    List<FoodModel> foodList = await connection.getFoodList();
     Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context) {
-      return HomeScreen(liste);
+      return HomeScreen(drinkList, foodList);
     }), (route) => false);
   }
 

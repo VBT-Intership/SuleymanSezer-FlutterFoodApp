@@ -1,4 +1,5 @@
 import 'package:eat_app/model/drink_model.dart';
+import 'package:eat_app/model/food_model.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -6,9 +7,10 @@ import '../component/bottom_list_view.dart';
 import '../component/top_list_view.dart';
 
 class HomeScreen extends StatelessWidget {
-  HomeScreen(this.liste);
+  HomeScreen(this.drinkList, this.foodList);
 
-  final List<DrinkModel> liste;
+  final List<DrinkModel> drinkList;
+  final List<FoodModel> foodList;
 
   @override
   Widget build(BuildContext context) {
@@ -19,8 +21,8 @@ class HomeScreen extends StatelessWidget {
         child: Column(
           children: [
             Expanded(flex: 1, child: topNavigation()),
-            Expanded(flex: 2, child: TopListView()),
-            Expanded(flex: 4, child: bottomCard(liste)),
+            Expanded(flex: 2, child: TopListView(foodList)),
+            Expanded(flex: 4, child: bottomCard(drinkList)),
           ],
         ),
       ),
