@@ -35,10 +35,7 @@ Card itemCard(String imageAddress, String itemName, String itemNum) {
       children: [
         Expanded(
           flex: 5,
-          child: Image.network(
-            imageAddress,
-            fit: BoxFit.fill,
-          ),
+          child: Image.network(imageAddress, fit: BoxFit.fill),
         ),
         Expanded(flex: 1, child: itemText(itemName, itemNum))
       ],
