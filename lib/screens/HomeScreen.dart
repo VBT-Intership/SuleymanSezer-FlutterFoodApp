@@ -42,6 +42,32 @@ AppBar appBar() {
   );
 }
 
+Row topNavigation() {
+  return Row(
+    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+    children: [titleText(), searchIcon()],
+  );
+}
+
+Padding titleText() {
+  return Padding(
+    padding: EdgeInsets.only(left: 10),
+    child: Text(
+      'Bugün ne yemek \nistersin?',
+      style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
+    ),
+  );
+}
+
+Card searchIcon() {
+  return Card(
+    elevation: 2.0,
+    color: Colors.white,
+    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+    child: Padding(padding: EdgeInsets.all(8), child: Icon(Icons.search)),
+  );
+}
+
 Card bottomCard(List<DrinkModel> liste) {
   return Card(
     color: Colors.white70,
@@ -68,6 +94,18 @@ Row popularItem() {
   );
 }
 
+Card popularItemIcon() {
+  return Card(
+    elevation: 2.0,
+    color: Colors.red,
+    shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.all(Radius.elliptical(100, 100))),
+    child: Padding(
+        padding: EdgeInsets.all(8),
+        child: Icon(Icons.favorite, color: Colors.white)),
+  );
+}
+
 Icon popularItemRightArrow() {
   return Icon(Icons.chevron_right, size: 32, color: Colors.black);
 }
@@ -90,55 +128,4 @@ Text popularItemTextHeader() {
 Text popularItemTextCenter() {
   return Text("Sizi baştan çıkartacak lezzetler!",
       style: TextStyle(color: Colors.black45));
-}
-
-Row topNavigation() {
-  return Row(
-    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-    children: [titleText(), searchIcon()],
-  );
-}
-
-Card popularItemIcon() {
-  return Card(
-    elevation: 2.0,
-    color: Colors.red,
-    shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.all(Radius.elliptical(100, 100))),
-    child: Padding(
-        padding: EdgeInsets.all(8),
-        child: Icon(Icons.favorite, color: Colors.white)),
-  );
-}
-
-Card topListviewImageItem() {
-  return Card(
-    clipBehavior: Clip.antiAliasWithSaveLayer,
-    elevation: 5,
-    margin: EdgeInsets.all(10),
-    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
-    child: Image.network(
-      "https://sugargeekshow.com/wp-content/uploads/2020/03/rainbow-cake-featured-scaled.jpg",
-      fit: BoxFit.fill,
-    ),
-  );
-}
-
-Card searchIcon() {
-  return Card(
-    elevation: 2.0,
-    color: Colors.white,
-    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
-    child: Padding(padding: EdgeInsets.all(8), child: Icon(Icons.search)),
-  );
-}
-
-Padding titleText() {
-  return Padding(
-    padding: EdgeInsets.only(left: 10),
-    child: Text(
-      'Bugün ne yemek \nistersin?',
-      style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
-    ),
-  );
 }
