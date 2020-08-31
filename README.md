@@ -1,7 +1,7 @@
 ## Menü Uygulaması
 
 
-![Untitled](https://user-images.githubusercontent.com/25854605/91671635-2bdc3c80-eb31-11ea-9d97-d13265f72f7a.gif)
+![Untitled](https://user-images.githubusercontent.com/25854605/91713859-37604f80-eb93-11ea-99f6-c418ae2e9c48.gif)
 
 
 ### Api Adresi
